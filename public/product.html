@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/header.css">
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+  <style> [v-cloak]{display:none} </style>
+</head>
+<body>
+    <header id="header">
+       <!-- 1.网页头部 -->
+      <div>  
+          <div class="header">            
+            <div class="clearboth" style="height: 160px;">
+            <!-- 左边区域 -->
+                <div class="logo float_left" style="margin-top: 20px;">
+                    <a href="#"><img src="img/img-header/head_logo.png"></a>
+                    <a href=""><img src="img/img-header/slogan1.png" style="margin-top: 12px;"></a>
+                </div>
+            <!-- 右边区域 -->
+                <div class="header-r float_right">
+                <div class="header-r-t clearboth">
+                    <div id="signout">
+                      <div class=" dl float_left p_relative">
+                        <a href="login.html" style="background: none;" id="btnLogin"><span>登录</span></a>
+                        <ul class="login_hidden p_absolute">
+                            <li>购物车</li>
+                            <li>个人中心</li>
+                            <li>我的订单</li>
+                            <li>退出登录</li>
+                        </ul>
+                      </div>
+                      <div class="float_left">
+                        <a href="register.html"><span>注册</span></a>
+                      </div>
+                    </div>
+                    <div>
+                      <a class="p-1 text-muted" href="#">Welcome <span id="uname">dangdang</span></a>
+                      <a class="p-1 text-muted" id="btnSignout" href="javascript:;">注销</a>
+                    </div>
+                    <div class="float_left">
+                    <a href="">
+                        <i class="i-img"></i>
+                        <span>400-1113-520</span>
+                    </a>
+                    </div>
+                    <div class="float_left p_relative">
+                    <a href=""><span>官方微信</span></a>
+              <!--     <div class="weixin p_absolute">
+                        <img src="img/img-header/wxcode.png">
+                        <p>扫一扫二维码关注</p>
+                    </div>  -->
+                    </div>
+                    <div class="float_left p_relative">
+                    <a href=""><span>官方微博</span></a>
+              <!--     <div class="weibo p_absolute">
+                        <img src="img/img-header/header-wb.png">
+                        <p>扫一扫二维码关注</p>
+                    </div>  -->
+                    </div>
+                    <div class="float_left">
+                    <a href=""><span>天猫旗舰店</span></a>
+                    </div>
+                    <div class="float_left">
+                    <a href=""><span>京东旗舰店</span></a>
+                    </div>
+                </div>
+                <div class="header-r-b">
+                </div>
+                </div>
+            </div>
+            <div class="outer_menu">
+              <div class="menu" style="font-size: 12px;">
+                  <ul class="clearboth">
+                      <li><a>Derier</a></li>
+                      <li class="s1">
+                        <a >求婚钻戒</a>
+                        <div class="div1">
+                          <div class="float_left f f1">
+                            <a href="#"><p>浏览</p></a>
+                            <a href="#"><p>热销</p></a>
+                            <a href="#"><p>新品</p></a>
+                          </div>
+                          <div class="float_left f">
+                            <a href="#"><p>系列</p></a>
+                            <a href="#"><p>[发现6] Promises臻爱承诺系列</p></a>
+                            <a href="#"><p>[发现7] Splendor璀璨的爱系列</p></a>
+                            <a href="#"><p>Always Love初心系列</p></a>
+                            <a href="product.html?kwords=favor"><p>Favor宠爱系列</p></a>
+                            <a href="product.html?kwords=星辰"><p>星辰系列</p></a>
+                            <a href="#"><p>此心永恒系列</p></a>
+                            <a href="#"><p>Forevermark永恒印记花懿系列</p></a>
+                          </div>
+                          <div class="float_left f f3">
+                            <img src="img/nav/91b4e867-63bf-447d-b344-19ac8129d82c.png">
+                          </div>
+                        </div>
+                      </li>
+                      <li class="s2">
+                        <a>结婚对戒</a>
+                        <div class="div2">
+                            <div class="float_left f f1">
+                              <a href="#"><p>类型</p></a>
+                              <a href="#"><p>结婚对戒</p></a>
+                              <a href="#"><p>男戒</p></a>
+                              <a href="#"><p>浏览</p></a>
+                              <a href="#"><p>热销</p></a>
+                              <a href="#"><p>新品</p></a>
+                            </div>
+                            <div class="float_left f">
+                              <a href="#"><p>系列</p></a>
+                              <a href="#"><p>Imprinting印刻时光系列</p></a>
+                              <a href="#"><p>One Love同心缘系列</p></a>
+                              <a href="#"><p>Happiness幸福系列</p></a>
+                            </div>
+                            <div class="float_left f f3">
+                              <img src="img/nav/cc67f2ca-ccff-4c87-b334-b97851a2e514.jpg">
+                            </div>
+                        </div>
+                      </li>
+                      <li class="s3">
+                        <a>爱的配饰</a>
+                        <div class="div3">
+                          <div class="float_left f f1">
+                            <a href="#"><p>类型</p></a>
+                            <a href="#"><p>耳饰系列</p></a>
+                            <a href="#"><p>套链系列</p></a>
+                            <a href="#"><p>女戒饰品系列</p></a>
+                            <a href="#"><p>用途</p></a>
+                            <a href="#"><p>自用</p></a>
+                            <a href="#"><p>馈赠</p></a>
+                          </div>
+                          <div class="float_left f">
+                            <a href="#"><p>系列</p></a>
+                            <a href="#"><p>[发现6] Promises臻爱承诺系列</p></a>
+                            <a href="#"><p>丁香物语系列</p></a>
+                            <a href="#"><p>星辰系列</p></a>
+                            <a href="#"><p>Happiness幸福系列</p></a>
+                          </div>
+                          <div class="float_left f f3" style="width:660px">
+                            <img src="img/nav/d88547dd-39b1-4ca6-93eb-3eda5f46cb86.png" >
+                          </div>
+                        </div>
+                      </li>
+                      <li class="s4">
+                        <a>高级定制</a>
+                        <div class="div4">浏1览</div>
+                      </li>
+                      <li class="s5">
+                        <a>实体店</a>
+                        <div class="div5">浏览3</div>
+                      </li>
+                      <li class="s6">
+                        <a>Derier故事</a>
+                        <div class="div6">
+                          <div class="float_left f f3" style="width: 524px;margin-right: 26px;margin-left: 30px;">
+                            <a href="main.html"><img src="img/nav/9fa2df4e-e95d-4a59-bfe2-18c95e3971d3.jpg" style="width:520px;"></a>
+                          </div>
+                          <div class="float_left f f3" style="width: 524px;margin-right: 10px;">
+                            <a href="#"><img src="img/nav/b53fbfc5-a0ec-4b7a-aef6-e4f6063ca501.png" style="width:520px;"></a>
+                          </div>
+                        </div>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+  <!-- 2.轮播图 -->
+  <div>
+    <div class="circle">
+      <img src="img/shopping/3.jpg">
+    </div>
+  </div>
+  <!-- 3.商品列表 -->
+  <div id="products-list">
+    <div class="products-list">
+      <div class="Derier">
+        <div style="color: #333;padding: 20px 0;">
+          <span>
+            <a>Derier</a>
+            <a> > </a>
+            <a style="color: #d3ad82;">经典婚戒</a>
+          </span>
+        </div>
+      </div>
+      <div class="list p_relative clearboth">
+        <ul class="clearboth" style="float:left">
+          <li class="xl">
+            <span>系列</span>
+            <div class="series1">
+              <span>Promises 系列</span>
+              <span>【发现6】Splendor系列</span>
+              <span>Forevermark 系列</span>
+              <span>丁香物语系列</span>
+              <span>星辰 系列</span>
+              <span>此心永恒 系列</span>
+              <span>Favor系列</span>
+              <span>Happiness 系列</span>
+              <span>Favor系列</span>
+            </div>
+          </li>
+          <li class="x2">
+            <span>材质</span>
+            <div class="series2">
+              <span>白18K金</span>
+              <span>红18K金</span>
+            </div>
+          </li>
+          <li class="x3">
+            <span>价格</span>
+            <div class="series3">
+              <span>5000元以下</span>
+              <span>5000-8000元</span>
+              <span>8000-15000元</span>
+              <span>15000元以上</span>
+            </div>
+          </li>
+          <li class="x4">
+            <span>排序</span>
+            <div class="series4">
+              <span>人气</span>
+              <span>价格</span>
+              <span>销量</span>
+              <span>新品</span>
+            </div>
+          </li>
+        </ul>
+        <!-- 搜索栏 -->
+        <div class="form-inline">
+            <div class="input-group">
+                <input type="text" class="form-control p-0" placeholder="请输入你要搜索的内容" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <img class="btn p-0" src="img/search.png" id="btnsearch">
+            </div>
+        </div>
+      </div>
+      <div class="search clearboth">
+        <li id="plist">
+      <!--    <div class="search-div">
+            <a><img :src="p.pic"></a>
+            <ul class="search-text">
+              <li class="title"><span>{{p.title}}</span> <span>{{p.details}}</span></li>
+              <li class="btn">
+                <div class="clearboth">
+                  <span class="btn-price float_left">￥<b>{{p.price.toFixed(2)}}</b></span>
+                  <span class="btn-pay float_left"><a href="details.html?lid=2">点击购买</a></span>
+                </div>
+              </li>
+            </ul>
+          </div>    -->
+        </li>   
+      </div>
+    </div>
+    <div class="page" >
+      <ul id="pages">
+        <li><a href="#" class="last-page  disabled">上一页</a></li>
+        <li><a href="#" class="next-page">下一页</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- 1.网页底部 -->
+  <div class="footer">
+    <div class="footer-t">
+      <div class="line-top"></div>
+      <div class="line-bottom"></div>
+    </div>
+    <div class="footer-m clearboth">
+      <div>
+        <ul>
+          <li style="margin-left: 180px;"><a href=""><span>免费配送</span></a></li>
+          <li><a href=""><span>到店自提</span></a></li>
+          <li><a href=""><span>线下服务</span></a></li>
+          <li><a href=""><span>终身保养</span></a></li>
+          <li><a href=""><span>全程保险</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-b">
+      <div>
+        <div class="footer-b-t">
+          <ul class="outer-ul clearboth">
+            <li class="float_left">
+              <p>400-11-13520</p>
+              <p>工作日 8:30 - 17:30</p>
+              <p><a href="" style="color: #8b776c;font-size:16px;">点此联系我们</a></p>
+            </li>
+            <li class="float_left">
+              <p class="p-img"><img src="img/img-footer/wxcode (1).png" alt=""></p>
+              <p>DERIER珠宝微信公众号</p>
+            </li>
+            <li class="float_left">
+              <div class="float_left">
+                <p style="margin-bottom:15px;"><a href="">走进Derier</a></p>
+                <p><a href="">品牌故事</a></p>
+                <p><a href="">珠宝风尚</a></p>
+                <p><a href="">最新活动</a></p>
+                <p><a href="">产品手册</a></p>
+              </div>
+              <div class="float_left">
+                <p style="margin-bottom:15px;"><a href="">购物指南</a></p>
+                <p><a href="">购买流程</a></p>
+                <p><a href="">支付方式</a></p>
+                <p><a href="">配送说明</a></p>
+              </div>
+              <div class="float_left">
+                <p style="margin-bottom:15px;"><a href="">售后服务</a></p>
+                <p><a href="">售后服务条例</a></p>
+                <p><a href="">退换货说明</a></p>
+                <p><a href="">物流查询</a></p>
+              </div>
+              <div class="float_left">
+                <p style="margin-bottom:15px;"><a href="">品牌网点</a></p>
+                <p><a href="">精品宫殿</a></p>
+                <p><a href="">门店查询</a></p>
+                <p><a href="">在线预约</a></p>
+                <p><a href="">资讯中心</a></p>
+              </div>
+              <div class="float_left">
+                <p style="margin-bottom:15px;"><a href="">关注我们</a></p>
+                <p><a href="">联系方式</a></p>
+                <p><a href="">加入我们</a></p>
+                <p><a href="">网站地图</a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <hr>
+        <div class="footer-b-b"></div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/header.js"></script>  
+  <script src="js/product.js"></script>
+
+</body>
+</html>

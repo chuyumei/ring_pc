@@ -1,0 +1,94 @@
+body{
+    background-color: #fff !important;
+}
+.main_Limg .ul_left{
+    float:left;
+    width: 620px;
+    margin-right: 16px;
+}
+.main_Limg .ul_right{
+    float:right;
+    width: 603px;
+}
+.main_Limg ul li{
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.main_Limg ul li a .text{
+    position: absolute;
+    text-align: center;
+    bottom: 30px;
+    right: 37px;
+}
+.main_Limg ul li a .text .chinese{
+    font-size: 22px;
+    color: #070707;
+}
+.main_Limg ul li a .text .english{
+    font-size: 14px;
+    font-family: Georgia;
+    color: #333333;
+    font-style: oblique;
+}
+.clearboth{
+    clear: both;
+    display: table;
+    content:"";
+} 
+.w1240{
+    width:1240px;
+    margin:0 auto;
+}
+
+.star .star-title{
+    text-align: center;
+    margin: 54px 0 14px 0;
+}
+.star .star-title a{
+    font-size: 14px;
+    color: #DB985D;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #DB985D;
+}
+.star .star-title div{
+    margin-bottom: 13px;
+}
+.star .star-content ul li{
+    float: left;
+}
+.star .star-content ul li .item{
+    margin-top: 26px;    
+}
+.star .star-content ul .middle{
+    margin: 0 22px;
+}
+
+
+/*广告*/
+.container{position: relative;width: 800px;height: 474px;}
+video{
+    width: 100%;
+}
+    .ctrl{
+      position: absolute;
+      left:12%;
+      top:93%;
+      margin-top:-60px;
+      margin-left:-60px;
+    }
+    .ctrl img{width:72%;}
+    .ad{
+      position: absolute;   /*绝对定位*/
+      width:400px;
+      height:300px;         /*修改高度宽度*/
+      left:24%;
+      top:30%;             /*居中*/
+      margin-left:-200px;
+      margin-top:-150px;
+    }
+.ringshow img:hover{
+    transform: scale(1.1);
+    transition: transform .5s;
+    z-index: 1;
+}

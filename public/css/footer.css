@@ -1,0 +1,116 @@
+body{
+	margin:0 auto;
+	padding:0;
+	font-family: 'Microsoft YaHei',arial,sans-serif
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration:none;
+}
+h1,h3,p{
+	margin:0;
+	padding:0;
+	font-weight: 500;
+}
+.float_left{
+    float:left;
+}
+.float_right{
+    float:right;
+}
+
+.clearboth:after{
+    clear: both;
+    display: table;
+    content:"";
+}
+.p_relative{
+    position:relative;
+}
+.p_absolute{
+    position:absolute;
+}
+.footer{
+    margin-top: 50px;
+}
+.footer .footer-t .line-top{
+    height: 6px;
+    border-bottom: 1px solid #42465B;
+    border-top: 6px solid #42465B;
+}
+.footer{
+    margin-top: 50px;
+}
+.footer .footer-t .line-bottom{
+    height: 20px;
+    background-image: linear-gradient(0deg,#efefef 0%,#ffffff 100%),linear-gradient(#eeeeee,#eeeeee);
+}
+.footer .footer-m div ul li{
+    display: inline-block;
+    margin-right: 123px;
+}
+.footer .footer-m div{
+    text-align:center;
+    margin-top: 32px;
+}
+.footer .footer-m div ul li a span{
+    font-size: 16px;
+    font-family: Microsoft YaHei;
+    color: #666666;   
+}
+.footer .footer-b .footer-b-t{
+    padding: 50px 0;
+}
+.footer .footer-b .footer-b-t .outer-ul{
+    width: 1078px;
+    margin: 0 auto;
+}
+.footer-b-t .outer-ul li:first-child{
+    width: 238px;
+    height: 146px;
+    line-height: 48px;
+    border-right: 1px solid #42465B;
+    font-size: 18px;
+    color: #8b776c;
+}
+.footer-b-t .outer-ul li{
+    margin-left: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #8b776c;
+}
+.footer-b-t .outer-ul li .p-img{
+    margin-bottom: 9px;
+}
+.footer-b-t .outer-ul li:last-child{
+    padding-left: 35px;
+}
+.footer-b-t .outer-ul li:last-child div{
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+    color: #FFFFFF;
+    padding-right: 42px;
+}
+.footer-b-t .outer-ul li:last-child div p{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+}
+.footer-b-t .outer-ul li:last-child div p a{
+    color: #666666;
+}
+.footer-b-t .outer-ul li:last-child div p:first-child{
+    font-weight: bold;
+    color: #333333;
+}
+.footer{
+    width: 1240px;
+    margin: 0 auto;
+}

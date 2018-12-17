@@ -1,0 +1,19 @@
+new Vue({
+  el:"#products-list>div:first-child>div:last-child",
+  //el:"#main>div:nth-child(2)>h3:first-child",
+  data:{ 
+    res:[
+      {price:0},
+      {price:0},
+      {price:0},
+      {price:0},
+      {price:0},
+      {price:0},
+    ]
+  },
+  mounted(){
+    //this->vm
+    axios.get("http://localhost:3000/index/getIndexProducts").then(res=>this.res=res.data)
+    console.log(this.res)
+  }
+})

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+  <style> [v-cloak]{display:none} </style>
+</head>
+<body>
+ <!-- 1.网页头部 -->
+ <div>
+  <div class="header">            
+    <div class="clearboth" style="height: 176px;">
+      <!-- 左边区域 -->
+      <div class="logo float_left" style="margin-top: 36px;">
+        <a href=""><img src="img/img-header/head_logo.png"></a>
+        <a href=""><img src="img/img-header/slogan1.png"></a>
+      </div>
+      <!-- 右边区域 -->
+      <div class="header-r float_right">
+        <div class="header-r-t clearboth">
+          <div class=" dl float_left p_relative">
+            <a href="" style="background: none;"><span>登录</span></a>
+            <ul class="login_hidden p_absolute">
+              <li>购物车</li>
+              <li>个人中心</li>
+              <li>我的订单</li>
+              <li>退出登录</li>
+            </ul>
+          </div>
+          <div class="float_left">
+            <a href=""><span>注册</span></a>
+          </div>
+          <div class="float_left">
+            <a href="">
+              <i class="i-img"></i>
+              <span>400-1113-520</span>
+            </a>
+          </div>
+          <div class="float_left p_relative">
+            <a href=""><span>官方微信</span></a>
+            <div class="weixin p_absolute">
+              <img src="img/img-header/wxcode.png">
+              <p>扫一扫二维码关注</p>
+            </div>
+          </div>
+          <div class="float_left p_relative">
+            <a href=""><span>官方微博</span></a>
+            <div class="weibo p_absolute">
+              <img src="img/img-header/header-wb.png">
+              <p>扫一扫二维码关注</p>
+            </div>
+          </div>
+          <div class="float_left">
+            <a href=""><span>天猫旗舰店</span></a>
+          </div>
+          <div class="float_left">
+            <a href=""><span>京东旗舰店</span></a>
+          </div>
+        </div>
+        <div class="header-r-b">
+        </div>
+      </div>
+    </div>
+    <div class="menu" style="font-size: 12px;">
+      <ul class="clearboth">
+        <li><a>Derier</a></li>
+        <li><a>求婚钻戒</a></li>
+        <li><a>结婚对戒</a></li>
+        <li><a>爱的配饰</a></li>
+        <li><a>高级定制</a></li>
+        <li><a>实体店</a></li>
+        <li><a>Derier故事</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 2.轮播图 -->
+<div>
+  <div class="circle">
+    <img src="img/img-header/lunbo1.png">
+  </div>
+</div>
+<!-- 3.商品列表 -->
+<div id="products-list">
+  <div class="products-list">
+    <div class="Derier">
+      <div style="color: #333;padding: 20px 0;">
+        <span>
+          <a>Derier</a>
+          <a> > </a>
+          <a style="color: #d3ad82;">经典婚戒</a>
+        </span>
+      </div>
+    </div>
+    <div class="list p_relative">
+      <ul class="clearboth">
+        <li><span>系列</span></li>
+        <li><span>材质</span></li>
+        <li><span>价格</span></li>
+        <li><span>排序</span></li>
+      </ul>
+    </div>
+    <div class="search">
+      <li v-for="p in res">
+        <div class="search-div">
+          <a><img :src="p.pic"></a>
+          <ul class="search-text">
+            <li class="title"><span>{{p.title}}</span> <span>{{p.details}}</span></li>
+            <li class="btn" style="margin-left: 90px;">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>{{p.price.toFixed(2)}}</b></span>
+                <span class="btn-pay float_left"><a href="details.html?lid=2">购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>   
+        <!--第四位商品出插入广告 -->
+ <!--
+      <li v-for="p in res.slice(1)">
+        <div class="search-div">
+          <a><img :src="p.pic"></a>
+          <ul class="search-text">
+            <li class="title"><span>{{p.title}}</span><span> {{p.details}}</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>{{p.price.toFixed(2)}}</b></span>
+                <span class="btn-pay float_left"><a href="details.html?lid=2">购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li v-for="p in res.slice(2)">
+        <div class="search-div">
+          <a><img :src="p.pic"></a>
+          <ul class="search-text">
+            <li class="title"><span>{{p.title}}</span><span> {{p.details}}</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>{{p.price.toFixed(2)}}</b></span>
+                <span class="btn-pay float_left"><a href="details.html?lid=1">购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+     <li>
+        <div class="search-div">
+          <a><img src="img/img-header/f8875e03-b885-4e78-8e81-affa606cc62e.jpg"></a>
+          <ul class="search-text">
+            <li class="title"><span>Happiness 系列</span><span> 守护 对戒 5分 I-J色</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>6130</b></span>
+                <span class="btn-pay float_left"><a>购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="search-div">
+          <a><img src="img/img-header/0a96d4c2-1bf7-40aa-acaf-5f1caacfe3a5.jpg"></a>
+          <ul class="search-text">
+            <li class="title"><span>【发现7】Splendor系列</span><span> 光芒 简奢款 50分 H色</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>23800</b></span>
+                <span class="btn-pay float_left"><a>购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="search-div">
+          <a><img src="img/img-header/64e912d3-bcab-42b2-b1cd-3d0bbd6e5123.jpg"></a>
+          <ul class="search-text">
+            <li class="title"><span>Favor系列</span><span> 相守 奢华款 50分 H色</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>26800</b></span>
+                <span class="btn-pay float_left"><a>购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="search-div">
+          <a><img src="img/img-header/96dc6664-ad5c-46ca-9d67-a20d74454a8e.jpg"></a>
+          <ul class="search-text">
+            <li class="title"><span>Happiness 系列</span><span> 包容 对戒 5分 I-J色</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>9470</b></span>
+                <span class="btn-pay float_left"><a>购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="search-div">
+          <a><img src="img/img-header/8163b56b-b51e-4917-9725-b98a3f2fd142.jpg"></a>
+          <ul class="search-text">
+            <li class="title"><span>【发现7】Splendor系列</span><span> 光芒 简奢款 车花 20分 H色</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>79000</b></span>
+                <span class="btn-pay float_left"><a>购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="search-div">
+          <a><img src="img/img-header/1d5fb275-a3c7-404b-8ba5-b1632527b531.jpg"></a>
+          <ul class="search-text">
+            <li class="title"><span>Always love 系列</span><span> 缘分 15分 I-J色</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>6200</b></span>
+                <span class="btn-pay float_left"><a>购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="search-div">
+          <a><img src="img/img-header/1117640b-7765-4a4b-8d74-53fd708b72a4.jpg"></a>
+          <ul class="search-text">
+            <li class="title"><span>Always Love系列</span><span> 携手 简奢款  15分 I-J色</span></li>
+            <li class="btn">
+              <div class="clearboth">
+                <span class="btn-price float_left">￥<b>5680</b></span>
+                <span class="btn-pay float_left"><a>购买</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li> -->
+    </div>
+  </div>
+  <div class="page">
+    <ul>
+      <a href="" class="last-page">上一页</a>
+      <a href="">1</a>
+      <a href="">2</a>
+      <a href="">3</a>
+      <a href="">4</a>
+      <a href="">5</a>
+      <a href="">6</a>
+      <a href="">7</a>
+      <a href="" class="next-page">下一页</a>
+    </ul>
+  </div>
+</div>
+ <!-- 1.网页底部 -->
+ <div class="footer">
+  <div class="footer-t">
+    <div class="line-top"></div>
+    <div class="line-bottom"></div>
+  </div>
+  <div class="footer-m">
+    <div>
+      <ul>
+        <li><a href=""><span>免费配送</span></a></li>
+        <li><a href=""><span>到店自提</span></a></li>
+        <li><a href=""><span>线下服务</span></a></li>
+        <li><a href=""><span>终身保养</span></a></li>
+        <li><a href=""><span>全程保险</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-b">
+    <div>
+      <div class="footer-b-t">
+        <ul class="outer-ul clearboth">
+          <li class="float_left">
+            <p>400-11-13520</p>
+            <p>工作日 8:30 - 17:30</p>
+            <p><a href="" style="color: #8b776c;font-size:16px;">点此联系我们</a></p>
+          </li>
+          <li class="float_left">
+            <p class="p-img"><img src="img/img-footer/wxcode (1).png" alt=""></p>
+            <p>DERIER珠宝微信公众号</p>
+          </li>
+          <li class="float_left">
+            <div class="float_left">
+              <p style="margin-bottom:15px;"><a href="">走进Derier</a></p>
+              <p><a href="">品牌故事</a></p>
+              <p><a href="">珠宝风尚</a></p>
+              <p><a href="">最新活动</a></p>
+              <p><a href="">产品手册</a></p>
+            </div>
+            <div class="float_left">
+              <p style="margin-bottom:15px;"><a href="">购物指南</a></p>
+              <p><a href="">购买流程</a></p>
+              <p><a href="">支付方式</a></p>
+              <p><a href="">配送说明</a></p>
+            </div>
+            <div class="float_left">
+              <p style="margin-bottom:15px;"><a href="">售后服务</a></p>
+              <p><a href="">售后服务条例</a></p>
+              <p><a href="">退换货说明</a></p>
+              <p><a href="">物流查询</a></p>
+            </div>
+            <div class="float_left">
+              <p style="margin-bottom:15px;"><a href="">品牌网点</a></p>
+              <p><a href="">精品宫殿</a></p>
+              <p><a href="">门店查询</a></p>
+              <p><a href="">在线预约</a></p>
+              <p><a href="">资讯中心</a></p>
+            </div>
+            <div class="float_left">
+              <p style="margin-bottom:15px;"><a href="">关注我们</a></p>
+              <p><a href="">联系方式</a></p>
+              <p><a href="">加入我们</a></p>
+              <p><a href="">网站地图</a></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="footer-b-b"></div>
+    </div>
+  </div>
+</div>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

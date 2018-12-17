@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/details.css">
+    <script src="js/vue.js"></script>
+    <style>
+        #mask{
+            width: 176px;
+            height: 176px;
+            background-color: lightblue;
+            opacity: .5;
+            left: 143px;
+            top: 129px;
+            position: absolute !important;       
+        }
+        #super-mask{
+            width: 546px;
+            height: 546px;
+            position: absolute !important;
+        }
+        #div-lg{
+            width: 500px;
+            height: 500px;
+            left: 501px;
+            z-index: 1000;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            position: absolute !important;
+            top: 127px;
+        }
+        #content-left{
+            position: absolute !important;
+        }
+        .d-none{
+            display: none !important; 
+        }
+    </style>
+</head>
+<body>
+    <div id="Details">
+        <div class="content">
+            <!-- 页面内容头部-->
+            <div id="content-top">
+                <span>
+                    <a>Derier</a>&nbsp;>&nbsp;
+                    <a>求婚钻戒</a>&nbsp;>&nbsp;
+                    <a>Splendor 系列</a>
+                </span>
+            </div>
+            <div class="content-middle">
+                <!-- 页面内容左部-->
+                <div id="content-left" class="col pr-0">
+                    <!-- 中间图片内容 -->
+                    <div class="ring" id="ring_middle">
+                        <!-- 上面大图片 -->
+                        <ul class="ring-face">
+                            <li id="ring-hide1">
+                                <img src="" style="width:91%;margin-left: 0;">
+                            </li>
+                            <!-- 隐藏部分 -->
+                            <div id="mask" class="d-none"></div>
+                            <div id="super-mask" ></div>
+                            <div id="div-lg" class="d-none"></div>
+                        </ul>
+                        <!-- 下面小图片 -->
+                        <div class="card-body">                       
+                            <div class="ring-small" id="ring_small">
+                                <!-- 左右箭头begin -->
+                                <img src="img/shopping/disabled-prev.png" style="float:left;margin-top: 16px;width: 16px;">
+                                <div class="middle">
+                                    <ul>
+                                    <!--     <li class="sm-ring-checked">
+                                            <img :src="{{product.pic}}" alt="">
+                                        </li>
+                                    <li>
+                                            <img src="img/shopping/4.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <img src="img/shopping/5.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <img src="img/shopping/3.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <img src="img/shopping/2.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <img src="img/shopping/3.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <img src="img/shopping/7.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <img src="img/shopping/2.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <img src="img/shopping/6.jpg" alt="">
+                                        </li>       -->
+                                    </ul>
+                                </div>
+                                <!-- 左右箭头end -->
+                                <img src="img/shopping/disabled-next.png" 
+                                style="float:right;position:relative; z-index:16;margin-top: 16px;width: 16px;">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 隐藏部分 -->
+                    <div></div>
+                    <!-- 微信、微博部分 -->
+                    <div class="weixin"></div>
+                </div>
+                <!-- 页面内容右部-->
+                <div id="content-right" class="col pl-0">
+                    <div>
+                        <div>
+                            <span style="font-size: 24px;font-family: Microsoft YaHei;">
+                                {{product.title}}
+                            </span>
+                        </div>
+                        <div style="padding-top: 7px; text-align: right; font-size: 12px;color: #999999;font-family: 'Microsoft YaHei';margin-top: 13px;;">
+                            <span>更多<a href="" style="font-size: 12px;color: #999999;">Splendor 系列</a></span>
+                        </div>
+                        <div class="price">
+                            <div class="price-l">
+                                <span>￥{{product.price.toFixed(2)}}</span>
+                            </div>
+                        </div>
+                        <div class="specs">
+                            <ul class="clearboth">
+                                <li class="weight">
+                                    <span>主钻重量：</span>
+                                    <a class="cur">30分</a>
+                                </li>
+                                <li class="color">
+                                    <span>主钻颜色：</span>
+                                    <a class="cur">H</a>
+                                </li>
+                                <li class="neat">
+                                    <span>钻石净度：</span>
+                                    <a class="cur">cur</a>
+                                </li>
+                                <li class="cut">
+                                    <span>钻石切工：</span>
+                                    <a class="cur">VG</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn">
+                            <div class="margin-t10">
+                                <span class="caizhi">戒托材质</span>
+                                <span class="kg">白18K金</span>
+                            </div>
+                            <div class="margin-t10">
+                                <span class="float_left caizhi margin-t10" style="margin-top:6px;">可搭主钻</span>
+                                <ul class="float_left">
+                                    <li>
+                                        <a class="kg" style="border:2px solid #d3ad82;margin-left: 4px;margin-bottom: 9px;" href="" v-for="spec in specs" :href="`details.html?lid=${spec.lid}`">{{spec.spec}}</a>
+                                <!--      <span class="kg">30分 F色</span>
+                                        <span class="kg">30分 H色</span>
+                                        <span class="kg">50分 D色</span>
+                                        <span class="kg">50分 E色</span>
+                                        <span class="kg margin-t10" style="margin-left:4px;">50分 G色</span>
+                                        <span class="kg margin-t10">70分 F色</span>
+                                        <span class="kg margin-t10">70分 H色</span>
+                                        <span class="kg margin-t10">100分 E色</span>
+                                        <span class="kg margin-t10">100分 E色</span>
+                                        <span class="kg margin-t10" style="margin-left:4px;">100分 E色</span>
+                                        <span class="kg margin-t10">100分 A色</span>
+                                        <span class="kg margin-t10">100分 B色</span>
+                                        <span class="kg margin-t10">100分 G色</span>
+                                -->     </li>
+                                </ul>
+                            </div>
+                            <div class="margin-t10" style="font-size: 12px;margin-left: 70px;">
+                                <span class="s" style="display:block">
+                                    <a href="" class="kg" style="width: 180px;height:30px;color: #d3ad82;float: left;">高级钻石定制</a>
+                                    <a href="" style="color: #d3ad82;float: right;margin-top: 7px;">如何选择钻石?</a>
+                                </span>
+                            </div>
+                            <div></div>
+                        </div>
+                        <div class="size-out" style="margin-top: 16px;">
+                            <div class="size-inner clearboth">
+                                <span class="size-inner-l-sel caizhi float_left" style="display:inline-block;margin-top: 8px;">选择手寸</span>
+                                <div class="size-inner-r-text clearboth float_left">
+                                    <div class="float_left size" style="width: 106px;">
+                                        <select name="name" style="border:none;height: 26px;width: 100px;font-size: 12px;">
+                                            <option value="">选择手寸</option>
+                                            <option value="">5寸</option>
+                                            <option value="">6寸</option>
+                                            <option value="">7寸</option>
+                                            <option value="">8寸</option>
+                                            <option value="">95寸</option>
+                                            <option value="">10寸</option>
+                                            <option value="">11寸</option>
+                                            <option value="">12寸</option>
+                                            <option value="">13寸</option>
+                                            <option value="">14寸</option>
+                                            <option value="">15寸</option>
+                                            <option value="">16寸</option>
+                                            <option value="">17寸</option>
+                                            <option value="">18寸</option>
+                                            <option value="">19寸</option>
+                                            <option value="">20寸</option>
+                                            <option value="">21寸</option>
+                                            <option value="">22寸</option>
+                                            <option value="">23寸</option>
+                                            <option value="">24寸</option>
+                                            <option value="">25寸</option>
+                                            <option value="">26寸</option>
+                                            <option value="">27寸</option>
+                                            <option value="">28寸</option>
+                                            <option value="">29寸</option>
+                                        </select>
+                                    </div>
+                                    <div class="float_left" style="margin-left: 10px; margin-top: -1px;float: left;">
+                                        <span style="display: inline-block;"><input type="text" placeholder="限4个汉字/8个字符" class="kg" style="width:176px;height: 29px;border: 2px solid #e2e2e2;"></span>
+                                        <span class="kg" style="width: 36px; height: 26px;margin-left: 10px;margin-top: -1px;line-height: 23px;border: 2px solid #e2e2e2;">♥</span>
+                                        <span class="kg" style="width: 36px; height: 26px;margin-left: 10px;margin-top: -1px;line-height: 23px;border: 2px solid #e2e2e2;">&</span>
+                                        <span class="kg" style="border: 1px solid #d3ad82;margin-left: 6px;">预览</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 6px;">
+                            <a href="" style="font-size: 12px; color: #999999;
+                            font-family: Microsoft YaHei;">如何测量手寸?</a>
+                        </div>
+                        <div style="margin-top: 36px;">
+                            <span  class="enter-cart"><input type="text" value="加入购物车 id="add-cart" class="kg"></span>
+                            <span class="pay"><input type="text" value="立即购买"class="kg"></span>
+                        </div>
+                        <div class="instruction">
+                            <ul>
+                                <li style="float: none;"><span>配送说明：可配送至全国，顺丰速递全程保价；预计20个工作日内送达。</span></li>
+                                <li style="float: none;">
+                                    <ul class="clearboth">
+                                        <li style="font-size:12px;width:180px;margin-top:0;">30天退换</li>
+                                        <li style="font-size:12px;width:180px;margin-top:0;">全国包邮</li>
+                                        <li style="font-size:12px;width:180px;margin-top:0;">终生保养</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--商品详细信息-->
+        <div class="w1240 details-text">
+            <div class="clearboth">
+                <ul class="clearboth" id="details-cageray">
+                    <li>
+                        <span>销售分类 :</span>
+                        <span>{{pics[0].a}}</span>
+                    </li>
+                    <li>
+                        <span>系列 :</span>
+                        <span>{{product.title}}</span>
+                    </li>
+                    <li>
+                        <span>商品名称 :</span>
+                        <span>{{pics[0].c}}</span>
+                    <li>
+                        <span>商品编号 :</span>
+                        <span>{{pics[0].d}}</span>
+                    </li>
+                </ul>
+                <ul class="clearboth">
+                    <li>
+                        <span>款号 :</span>
+                        <span>{{pics[0].e}}</span>
+                    </li>
+                    <li>
+                        <span>材质 :</span>
+                        <span>{{pics[0].f}}</span>
+                    </li>
+                    <li>
+                        <span>主石材质 :</span>
+                        <span>{{pics[0].g}}</span>
+                    </li>
+                    <li>
+                        <span>主石形状 :</span>
+                        <span>{{pics[0].h}}</span>
+                    </li>
+                </ul>
+                <ul class="clearboth">
+                    <li>
+                        <span>主石色泽 :</span>
+                        <span>{{pics[0].i}}</span>
+                    </li>
+                    <li>
+                        <span>石重 :</span>
+                        <span>{{pics[0].j}}</span>
+                    </li>
+                    <li>
+                        <span>颜色 :</span>
+                        <span>{{pics[0].k}}</span>
+                    </li>
+                    <li>
+                        <span>净度 :</span>
+                        <span>{{pics[0].l}}</span>
+                    </li>
+                </ul>
+                <ul class="clearboth">
+                    <li>
+                        <span>切工 :</span>
+                        <span>{{pics[0].m}}</span>
+                    </li>
+                    <li>
+                        <span>抛光 :</span>
+                        <span>{{pics[0].n}}</span>
+                    </li>
+                    <li>
+                        <span>荧光 :</span>
+                        <span>{{pics[0].o}}</span>
+                    </li>
+                    <li>
+                        <span>对称 :</span>
+                        <span>{{pics[0].p}}</span>
+                    </li>
+                </ul>
+                <ul class="clearboth">
+                    <li>
+                        <span>台面 :</span>
+                        <span>{{pics[0].q}}</span>
+                    </li>  
+                </ul>
+            </div>
+            <img src="img/shopping/1518086026.jpg" alt="">
+            <img src="img/shopping/1524707731.jpg" alt="">
+            <img src="img/shopping/8546425d-7a1f-4e27-9ba8-c7d2832501ff.jpg" alt="">
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/details.js"></script>
+</body>
+</html>
